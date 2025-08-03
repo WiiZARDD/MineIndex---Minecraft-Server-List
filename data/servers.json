@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Cubed Community",
+    "ip": "play.cubed.community",
+    "version": "",
+    "website": "",
+    "description": "We build cities together, and help each other learn architecture!",
+    "icon": "uploads/1754211599111-8cc925d7-2a6b-4ddc-8790-817fd3695827.png",
+    "created": 1754211599112
+  },
+  {
+    "name": "Wynncraft MMORPG",
+    "ip": "fmc.wynncraft.com",
+    "version": "",
+    "website": "",
+    "description": "Full-Fat MMORPG Server",
+    "icon": "uploads/1754258083891-121b1a0b-4c01-4ad2-ba1e-585b2af27b27.png",
+    "created": 1754258083892
+  },
+  {
+    "name": "Minecraft Middle Earth",
+    "ip": "build.mcmiddleearth.com",
+    "version": "",
+    "website": "",
+    "description": "Building the world of Tolkien's Middle Earth in Minecraft.",
+    "icon": "uploads/1754258166662-eef0e1f4-7a65-45a3-87d3-45587dc1d4eb.png",
+    "created": 1754258166663
+  }
+]

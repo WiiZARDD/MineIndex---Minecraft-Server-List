@@ -1,0 +1,21 @@
+[
+    {
+      "name": "Mineplex",
+      "ip": "mineplex.com",
+      "description": "Explore the stars in this epic space-themed server!",
+      "icon": "assets/server-icons/mineplex.png"
+    },
+    {
+      "name": "Hypixel",
+      "ip": "hypixel.net",
+      "description": "Fight your way to the top in high-stakes PvP battles.",
+      "icon": "assets/server-icons/hypixel.png"
+    },
+    {
+      "name": "Advancius Network",
+      "ip": "play.advancius.net",
+      "description": "Advancius Network is dedicated to creating quality experiences for everyone! Come join our welcoming community!",
+      "icon": "assets/server-icons/ad.png"
+    }
+  ]
+  
