@@ -1,0 +1,101 @@
+<!-- 
+ 
+Minecraft Server List Webpage By WiiZARDD
+https://github.com/WiiZARDD
+
+COMING SOON:
+- Database integration
+- Fullstack functionality
+- Payment features
+- Secure for production
+
+LAST UPDATE:
+Sun, Aug 3 2025 @ 2:04:15 PM
+
+Star and Fork repo to follow along for updates!
+ 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MineIndex - Discover new Minecraft servers!</title>
+  <link rel="icon" href="/assets/icons/favicon.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar Section -->
+
+    <nav id="navbar">
+        <img src="assets/logo.png" alt="ServerList Logo" class="logo"/>
+        <button class="nav-sandwich" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <img src="assets/sandwich.png" width="30" height="30" alt="">
+        </button>
+      
+        <div class="nav-links">
+          <button id="login-btn">Login</button>
+          <button id="submit-btn"><a href="submit.html" class="navlink">Submit Server</a></button>
+        </div>
+      </nav>
+      <div id="drawer-overlay"></div>
+      <aside id="mobile-menu" class="drawer mc-panel" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="drawer-close" aria-label="Close menu">×</button>
+        <button id="m-login-btn"  class="card2">Login</button>
+        <button id="m-submit-btn" class="card2"><a href="submit.html" class="navlink">Submit Server</a></button>
+      </aside>
+  
+  <!-- Main image footer block -->
+
+  <main>
+    <section>
+        <div class="main-container">
+            <div class="main-txt">
+                <h2 class="txt-top">Minecraft Servers</h2>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- Featured server block -->
+
+  <section>
+    <div class="txt">
+        <h2 class="feat">Featured Servers</h2>
+        <div>
+            <section id="featured-list" class="featured-container">
+              </section>
+        </div>
+    </div>
+
+  <!-- All servers block -->
+
+    <div class="txt">
+        <h2>All Servers</h2>
+        <div>
+            <section id="server-list" class="server-container">
+              </section>
+        </div>
+    </div>
+</section>
+
+  <!-- Footer block -->
+
+  <footer>
+    <div class="footerContainer">
+      <p class="footxt">WiiZARDD via Github. Your Website name - All rights reserved.</p>
+      <button class="forkBtn">
+        <div class="fork">
+          <img src="assets/icons/github.png" width="20px"><a>Fork Project</a>
+        </div>
+      </button>
+    </div>
+  </footer>
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

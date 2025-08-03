@@ -1,0 +1,627 @@
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  nav {
+    background-color: #1e1e1e00;
+    padding: 1rem 2rem;
+    display: flex;
+    top: 0;
+    position: sticky;
+    z-index: 1000;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+body { margin: 0; }
+
+.main-container{
+  min-height: 300px; 
+  background: url('assets/bg1.jpg') center / cover no-repeat;
+  background-color: rgba(0, 0, 0, 0.885);
+  display: flex;          
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container::after{
+    content:"";
+    max-height: 382px;
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.5);  
+    pointer-events: none;
+    z-index: 0;         
+  }
+
+.main-container > *{
+    position: relative;
+    z-index: 1;
+  }
+
+  .main-container h2{
+    color: #fff; 
+    margin: 0; 
+    line-height: 65px;              
+    text-shadow:       
+       1px 0 0 #000, -1px 0 0 #000,
+       0 1px 0 #000,  0 -1px 0 #000,
+       1px 1px 0 #000, -1px 5px 0 #000,
+       1px -1px 0 #000, -1px -1px 0 #000;
+  }
+
+
+  .main-txt {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 50px;
+    font-family: "Minecraft";
+  }
+
+  .nav-links button {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    background: #3f51b5;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .featured-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .server-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .feat {
+    margin-top: 40px;
+  }
+  
+  /*
+
+  .card {
+    background: #2a2a2a;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 0%;
+  }
+
+  */
+
+.txt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}   
+
+  .card {
+    font-size: 12px;
+    background-color: #008542;
+    color: #fff;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    border: 0;
+    z-index: 1;
+    user-select: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    max-height: 500px;
+    max-width: 300px;
+    letter-spacing: 1px;
+    white-space: unset;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: 900;
+    transition: all 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 0%;
+  }
+
+  .card:before {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+    transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+    z-index: -1;
+    background-color: #008542 !important;
+    box-shadow: 0 -4px rgb(21 108 0 / 50%) inset,
+      0 4px rgb(100 253 31 / 99%) inset, -4px 0 rgb(100 253 31 / 50%) inset,
+      4px 0 rgb(21 108 0 / 50%) inset;
+  }
+  
+  .card:after {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+    transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+  }
+  
+  .card:hover:before {
+    box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset,
+      -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+  }
+  
+  .card:hover:after {
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+  }
+  
+  .card:active {
+    transform: translateY(4px);
+  }
+  
+  .card:active:after {
+    box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+  }
+  
+  .card2 {
+    padding: 10px 40px;
+    font-size: 12px;
+    background-color: #333;
+    color: #fff;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 0;
+    z-index: 1;
+    max-height: 500px;
+    min-width: 300px;
+    max-width: 300px;
+    user-select: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: unset;
+    padding: .8rem 1.5rem;
+    text-decoration: none;
+    font-weight: 900;
+    transition: all 0.7s cubic-bezier(0,.8,.26,.99);
+  }
+  
+  .card2 img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 0%;
+  }
+  
+  .card2:before {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    transition: .7s cubic-bezier(0,.8,.26,.99);
+    z-index: -1;
+    background-color: #333!important;
+    box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset, -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+  }
+  
+  .card2:after {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+    transition: .7s cubic-bezier(0,.8,.26,.99);
+  }
+  
+  .card2:hover:before {
+    box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset, -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+  }
+  
+  .card2:hover:after {
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+  }
+  
+  .card2:active {
+    transform: translateY(4px);
+  }
+  
+  .card2:active:after {
+    box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+  }
+
+.form-wrap { 
+  padding: 24px 12px; 
+}
+.form-card { 
+  margin: 24px auto; 
+  max-width: 760px; 
+  text-align: left; 
+}
+.form-card h2 { margin: 0 0 8px; }
+.hint { color: #bbb; margin: 0 0 16px; }
+.status { margin-top: 8px; }
+.hp { display:none; }    
+
+.form-card.card2 {
+  padding: 20px 22px;      
+  max-height: none;         
+  max-width: 760px;   
+  cursor: default;
+  text-transform: none;
+  font-weight: 600;
+}
+
+.form-card label { 
+  display:block; 
+  font-weight: 700; 
+  margin: 10px 0 6px; 
+  color: #fff; 
+}
+
+.footerContainer {
+  margin-top: 30px;
+  display: inline-flex;
+  gap: 60px;
+  justify-content: space-between;
+  max-width: 1200px;
+  align-items: center;
+}
+
+.forkBtn {
+    font-size: 18px;
+    background-color: #333;
+    color: #fff;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 0;
+    z-index: 1;
+    user-select: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: unset;
+    text-decoration: none;
+    font-weight: 900;
+    transition: all 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+}
+
+.fork {
+  display: flex;
+  gap: 20px;
+}
+
+.forkBtn:before {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  display: block;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  content: "";
+  transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+  z-index: -1;
+  background-color: #333!important;
+  box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset, -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+}
+
+.forkBtn:after {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+  transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+}
+
+.forkBtn:hover:before {
+  box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset,
+    -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+}
+
+.forkBtn:hover:after {
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+}
+
+.forkBtn:active {
+  transform: translateY(4px);
+}
+
+.forkBtn:active:after {
+  box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+}
+
+.forkBtn:hover:before {
+  box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset, -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+}
+
+.forkBtn:hover:after {
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+}
+
+.footxt {
+  font-family: "Minecraft";
+}
+
+.mc-input,
+.mc-textarea,
+.mc-file {
+  width: 100%;
+  background: #1e1e1e;
+  color: #fff;
+  border: 0;
+  max-width: 520px;
+  padding: 12px 14px;
+  box-shadow:
+    0 -3px rgba(0,0,0,.45) inset,
+    0  3px rgba(255,255,255,.15) inset,
+   -3px  0 rgba(255,255,255,.15) inset,
+    3px  0 rgba(0,0,0,.45) inset;
+  transition: box-shadow .25s ease, transform .06s ease;
+}
+
+
+.mc-input:focus,
+.mc-textarea:focus {
+  outline: none;
+  box-shadow:
+    0 -3px rgba(0,0,0,.6) inset,
+    0  3px rgba(134, 135, 134, 0.35) inset,
+   -3px  0 rgba(83, 83, 83, 0.25) inset,
+    3px  0 rgba(0,0,0,.6) inset;
+}
+
+.mc-textarea { min-height: 110px; resize: vertical; }
+
+.mc-file {
+  padding: 10px;
+}
+.mc-file::-webkit-file-upload-button {
+  background: #333;
+  color: #fff;
+  border: 0;
+  margin-right: 10px;
+  padding: 10px 12px;
+  box-shadow:
+    0 -3px rgba(0,0,0,.45) inset,
+    0  3px rgba(255,255,255,.15) inset,
+   -3px  0 rgba(255,255,255,.15) inset,
+    3px  0 rgba(0,0,0,.45) inset;
+  cursor: pointer;
+}
+
+.mc-file::-webkit-file-upload-button:hover {
+  background: #303030;
+  color: #fff;
+  border: 0;
+  margin-right: 10px;
+  padding: 10px 12px;
+  box-shadow:
+    0 -3px rgba(0,0,0,.45) inset,
+    0  3px rgba(255,255,255,.15) inset,
+   -3px  0 rgba(255,255,255,.15) inset,
+    3px  0 rgba(0,0,0,.45) inset;
+}
+
+.row { display:flex; align-items:center; gap: 12px; }
+.preview { width: 88px; height: 88px; object-fit: cover; border-radius: 6px; background: #111; }
+
+.card2-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 12px 22px;  
+  max-width: none;  
+  max-height: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  cursor: pointer;
+}
+.card2-btn:active { transform: translateY(4px); }
+
+@media (max-width: 640px) {
+  .form-card.card2 { padding: 16px; }
+  .row { flex-direction: row; gap: 10px; }
+}
+
+  button {
+    font-size: 18px;
+    background-color: #008542;
+    color: #fff;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 0;
+    z-index: 1;
+    user-select: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: unset;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: 900;
+    transition: all 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+  }
+  
+.logo {
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 0%;
+}
+
+  button:before {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: block;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    content: "";
+    transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+    z-index: -1;
+    background-color: #008542 !important;
+    box-shadow: 0 -4px rgb(21 108 0 / 50%) inset,
+      0 4px rgb(100 253 31 / 99%) inset, -4px 0 rgb(100 253 31 / 50%) inset,
+      4px 0 rgb(21 108 0 / 50%) inset;
+  }
+  
+  button:after {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+    transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+  }
+  
+  button:hover:before {
+    box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset,
+      -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+  }
+  
+  button:hover:after {
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+  }
+  
+  button:active {
+    transform: translateY(4px);
+  }
+  
+  button:active:after {
+    box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+  }
+  
+#navbar{
+  position: sticky; top: 0; z-index: 1000;
+  background: #1e1e1e; color:#fff;
+  padding: 1rem 2rem;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-links { display:flex; gap:.75rem; }
+.nav-sandwich { display:none; background:none; border:0; cursor:pointer; }
+
+.navlink {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width:760px){
+  .nav-sandwich { display:inline-flex; align-items:center; }
+  .nav-links { display:none; }
+}
+
+#drawer-overlay{
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.5);
+  opacity: 0; pointer-events: none;
+  transition: opacity .35s ease;
+  z-index: 1050;
+}
+#drawer-overlay.show{ opacity:1; pointer-events:auto; }
+
+.drawer{
+  position: fixed; top:0; right:0; height:100vh;
+  width:320px; max-width:88vw; padding:16px;
+  display:flex; flex-direction:column; gap:12px;
+  transform: translateX(100%);
+  transition: transform .35s cubic-bezier(0,.8,.26,.99);
+  color:#fff; z-index:1100;
+  background:#333;
+}
+
+.drawer.mc-panel::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:#333;
+  box-shadow:
+    0 -4px rgba(0,0,0,.5) inset,
+    0  4px rgba(255,255,255,.2) inset,
+   -4px  0 rgba(255,255,255,.2) inset,
+    4px  0 rgba(0,0,0,.5) inset;
+}
+.drawer.open{ transform: translateX(0); }
+
+.drawer-close{
+  align-self:flex-end; font-size:28px; line-height:1;
+  background:transparent; border:0; color:#fff; cursor:pointer;
+}
+
+#mobile-menu .card2{ width:100%; text-transform:none; }
+
+footer {
+  text-align: center;
+}
+
+@font-face {
+  font-family: "Minecraft";
+  src:
+    url("/assets/fonts/Minecrafter-MA3Dw.woff2") format("woff2"),
+    url("/assets/fonts/Minecrafter-MA3Dw.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

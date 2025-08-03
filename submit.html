@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MineIndex - Submit a Minecraft Server</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/assets/icons/favicon.png">
+  <style>
+    .form-wrap { max-width:550px; margin:40px auto; padding:24px; background:#2b2b2b; color:#fff; }
+    label { display:block; margin:12px 0 6px; font-weight:600; }
+    .mc-input, .mc-textarea, .mc-file {
+      width:100%; padding:10px; border:none;
+      background:#1e1e1e; color:#fff; box-shadow: inset 0 0 4px rgba(0,0,0,0.7);
+    }
+    .mc-textarea { min-height:100px; resize:vertical; }
+    .row { display:flex; gap:12px; align-items:center; }
+    .preview { width:88px; height:88px; background:#111; object-fit:cover; border-radius:6px; }
+    .card2-btn {
+      margin-top:16px; padding:12px 24px; background:#727272; color:#fff;
+      border:none; text-transform:uppercase; font-weight:900; cursor:pointer;
+      border-radius:6px; box-shadow: inset 0 -3px rgba(0,0,0,0.5), inset 0 3px rgba(255,255,255,0.2);
+    }
+    .hint { color:#bbb; font-size:.85rem; }
+    .success { color:#58d68d; }
+    .error   { color:#ff6b6b; }
+  </style>
+</head>
+<body>
+    <nav id="navbar">
+        <img src="assets/logo.png" alt="ServerList Logo" class="logo"/>
+      
+        <button class="nav-sandwich" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <img src="assets/sandwich.png" width="30" height="30" alt="">
+        </button>
+      
+        <div class="nav-links">
+          <button id="home-btn"><a href="index.html" class="navlink">Home</a></button>
+          <button id="submit-btn"><a href="login.html" class="navlink">Login</a></button>
+        </div>
+      </nav>
+  <div class="form-wrap">
+    <h2>Submit a Minecraft Server</h2>
+    <p class="hint">Fill out all fields & upload an icon (PNG/JPG ≤1 MB).</p>
+
+    <form id="server-form" enctype="multipart/form-data">
+      <input type="text" name="hp" class="hp" autocomplete="off" style="display:none">
+
+      <label for="name">Server Name</label>
+      <input id="name" name="name" class="mc-input" required placeholder="GalaxyCraft">
+
+      <label for="ip">IP / Host</label>
+      <input id="ip" name="ip" class="mc-input" required placeholder="play.example.com">
+
+      <label for="version">Version (optional)</label>
+      <input id="version" name="version" class="mc-input" placeholder="1.20.1">
+
+      <label for="website">Website (optional)</label>
+      <input id="website" name="website" type="url" class="mc-input" placeholder="https://example.com">
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" class="mc-textarea" placeholder="Short description (max 240 chars)"></textarea>
+
+      <label for="icon">Server Icon</label>
+      <div class="row">
+        <input id="icon" name="icon" type="file" accept="image/png,image/jpeg" required class="mc-file">
+        <img id="preview" class="preview">
+      </div>
+
+      <button type="submit" class="card2-btn">Submit Server</button>
+      <p id="status" class="hint"></p>
+    </form>
+  </div>
+
+  <!-- Footer block -->
+
+  <footer>
+    <div class="footerContainer">
+      <p class="footxt">WiiZARDD via Github. Your Website name - All rights reserved.</p>
+      <button class="forkBtn">
+        <div class="fork">
+          <img src="assets/icons/github.png" width="20px"><a>Fork Project</a>
+        </div>
+      </button>
+    </div>
+  </footer>
+
+  </footer>
+
+  <script type="module">
+    const form      = document.getElementById('server-form');
+    const status    = document.getElementById('status');
+    const iconInput = document.getElementById('icon');
+    const preview   = document.getElementById('preview');
+
+    iconInput.addEventListener('change', () => {
+      const f = iconInput.files[0];
+      if (f) preview.src = URL.createObjectURL(f);
+    });
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      status.textContent = 'Submitting…';
+      status.className   = 'hint';
+
+      const fd = new FormData();
+      ['name','ip','version','website','description'].forEach(key =>
+        fd.append(key, form[key].value)
+      );
+      fd.append('icon', iconInput.files[0]);
+
+      try {
+        const res  = await fetch('/api/servers', { method:'POST', body:fd });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message);
+        status.textContent = 'Success! Redirecting…';
+        status.className   = 'success';
+        setTimeout(() => location.href = 'index.html', 1000);
+      } catch (err) {
+        status.textContent = 'Error: ' + err.message;
+        status.className   = 'error';
+      }
+    });
+  </script>
+</body>
+</html>
