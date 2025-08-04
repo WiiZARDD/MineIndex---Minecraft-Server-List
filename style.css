@@ -29,7 +29,7 @@ body { margin: 0; }
 
 .main-container::after{
     content:"";
-    max-height: 382px;
+    max-height: 385px;
     position: absolute; inset: 0;
     background: rgba(0,0,0,.5);  
     pointer-events: none;
@@ -400,7 +400,7 @@ body { margin: 0; }
 .mc-input,
 .mc-textarea,
 .mc-file {
-  width: 100%;
+  width: 90%;
   background: #1e1e1e;
   color: #fff;
   border: 0;
@@ -605,12 +605,33 @@ body { margin: 0; }
 }
 .drawer.open{ transform: translateX(0); }
 
+.drawer.mc-panel button {
+  width: 80px;
+  margin-left: 40px;
+}
+
 .drawer-close{
   align-self:flex-end; font-size:28px; line-height:1;
   background:transparent; border:0; color:#fff; cursor:pointer;
 }
 
-#mobile-menu .card2{ width:100%; text-transform:none; }
+#mobile-menu .card2{ width:40%; text-transform:none; }
+
+#mobile-menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+  width: 40%;
+}
+
+#mobile-menu .card2,
+#mobile-menu-items .card2,
+#mobile-menu a.navlink {
+  display: block !important;
+  width: 40%;
+  text-align: center;
+}
 
 footer {
   text-align: center;
@@ -624,4 +645,87 @@ footer {
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+}
+
+.navmenu {
+  padding: 10px 40px;
+  font-size: 12px;
+  background-color: #333;
+  color: #fff;
+  text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 0;
+  z-index: 1;
+  max-height: 500px;
+  min-width: 270px;
+  max-width: 270px;
+  user-select: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: unset;
+  padding: .8rem 1.5rem;
+  text-decoration: none;
+  font-weight: 900;
+  transition: all 0.7s cubic-bezier(0,.8,.26,.99);
+}
+
+.navmenu:before {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: '';
+  transition: .7s cubic-bezier(0,.8,.26,.99);
+  z-index: -1;
+  background-color: #333!important;
+  box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset, -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+}
+
+.navmenu:after {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: '';
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+  transition: .7s cubic-bezier(0,.8,.26,.99);
+}
+
+.navmenu:hover:before {
+  box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset, -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+}
+
+.navmenu:hover:after {
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+}
+
+.navmenu:active {
+  transform: translateY(4px);
+}
+
+.navmenu:active:after {
+  box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+}
+
+.ms-login {
+  width: 20px;
+}
+
+.rememberSection {
+  padding-top: 40px;
+}
+
+.selectionSection  {
+  display: flex;
+  gap: 20px;
 }
