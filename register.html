@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hint a { color:#9ecbff; text-decoration:none; }
+    .hint a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+      <!-- Navbar Section -->
+
+      <nav id="navbar">
+        <a href="index.html"><img src="assets/logo.png" alt="ServerList Logo" class="logo"/></a>
+        <button class="nav-sandwich" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <img src="assets/sandwich.png" width="30" height="30" alt="">
+        </button>
+      
+        <div class="nav-links">
+          <button id="login-btn"><a class="navlink" href="login.html">Login</a></button>
+          <button id="submit-btn"><a href="submit.html" class="navlink">Submit Server</a></button>
+        </div>
+      </nav>
+      <div id="drawer-overlay"></div>
+
+      <!-- Automatic mobile navbar population via JavaScript -->
+
+      <aside id="mobile-menu" class="drawer mc-panel" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="drawer-close" aria-label="Close menu">×</button>
+        <div id="mobile-menu-items"></div>
+      </aside>  
+  <div class="form-wrap">
+    <div class="form-card card2">
+      <h2>Create Account</h2>
+      <p class="hint">Register to manage your servers, submit new ones, and more.</p>
+
+      <form id="register-form" novalidate>
+        <label for="r-email">Email</label>
+        <input id="r-email" name="email" type="email" class="mc-input" placeholder="you@example.com" required>
+
+        <label for="r-username">Username</label>
+        <input id="r-username" name="username" type="text" class="mc-input" placeholder="YourName" required>
+
+        <label for="r-password">Password</label>
+        <input id="r-password" name="password" type="password" class="mc-input" placeholder="••••••••" required>
+
+        <label for="r-password2">Confirm Password</label>
+        <input id="r-password2" name="password2" type="password" class="mc-input" placeholder="••••••••" required>
+
+        <label class="mc-checkbox" style="margin-top:10px;">
+          <input type="checkbox" id="tos" required>
+          I agree to the Terms
+        </label>
+
+        <div class="selectionSection">
+            <div>
+                <button type="submit" class="card2-btn" id="register-btn">Create Account</button>
+            </div>
+            <div>
+                <button class="card2-btn"><a href="login.html" class="navlink">Login</a></button>
+            </div>
+        </div>
+        <p id="login-status" class="hint"></p>
+      </form>
+
+    </div>
+  </div>
+
+  <script type="module">
+    const form   = document.getElementById('register-form');
+    const status = document.getElementById('register-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = '';
+      const p1 = form.password.value;
+      const p2 = form.password2.value;
+      if (p1 !== p2) {
+        status.textContent = 'Passwords do not match';
+        status.className = 'error';
+        return;
+      }
+      status.textContent = 'Creating account…';
+      try {
+        const res  = await fetch('/api/register', { method:'POST', body:new FormData(form) });
+        const data = await res.json().catch(()=>({}));
+        if (!res.ok) throw new Error(data.message || 'Registration failed');
+        status.textContent = 'Success! Redirecting…';
+        status.className = 'success';
+        setTimeout(()=> location.href = 'login.html', 800);
+      } catch (err) {
+        status.textContent = 'Error: ' + err.message;
+        status.className = 'error';
+      }
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

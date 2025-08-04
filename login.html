@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .oauth-row { display:flex; gap:12px; flex-wrap:wrap; margin: 12px 0 4px; }
+    .oauth-btn {
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 16px; border:0; border-radius:8px; cursor:pointer;
+      color:#fff; font-weight:900; text-transform:uppercase;
+      box-shadow:
+        0 -3px rgba(0,0,0,.45) inset,
+        0  3px rgba(255,255,255,.15) inset,
+       -3px  0 rgba(255,255,255,.15) inset,
+        3px  0 rgba(0,0,0,.45) inset,
+        0  4px 0 rgba(0,0,0,.15);
+      transition: transform .06s ease;
+    }
+    .oauth-btn:active { transform: translateY(4px); }
+    .oauth-google    { background:#DB4437; }
+    .oauth-microsoft { background:#2F2F2F; }
+    .divider { display:flex; align-items:center; gap:12px; margin: 10px 0; color:#bbb; }
+    .divider::before, .divider::after { content:""; flex:1; height:1px; background:rgba(255,255,255,.15); }
+    .aux { margin-top:10px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .aux a { color:#9ecbff; text-decoration:none; }
+    .aux a:hover { text-decoration:underline; }
+    .mc-checkbox { display:flex; align-items:center; gap:8px; color:#ddd; }
+    .mc-checkbox input { width:18px; height:18px; }
+  </style>
+</head>
+<body>
+      <!-- Navbar Section -->
+
+      <nav id="navbar">
+        <a href="index.html"><img src="assets/logo.png" alt="ServerList Logo" class="logo"/></a>
+        <button class="nav-sandwich" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <img src="assets/sandwich.png" width="30" height="30" alt="">
+        </button>
+      
+        <div class="nav-links">
+          <button id="login-btn"><a class="navlink" href="index.html">Home</a></button>
+          <button id="submit-btn"><a href="submit.html" class="navlink">Submit Server</a></button>
+        </div>
+      </nav>
+      <div id="drawer-overlay"></div>
+
+      <!-- Automatic mobile navbar population via JavaScript -->
+
+      <aside id="mobile-menu" class="drawer mc-panel" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="drawer-close" aria-label="Close menu">×</button>
+        <div id="mobile-menu-items"></div>
+      </aside>      
+
+  <div class="form-wrap">
+    <div class="form-card card2">
+      <h2>Login</h2>
+      <p class="hint">Welcome back! Sign in with your email or continue with Google/Microsoft.</p>
+
+      <div class="oauth-row">
+        <button class="oauth-btn oauth-google" id="btn-google">
+            <img src="assets/icons/google.png" style="width:20px;height:20px" alt="">
+          Google
+        </button>
+        <button class="oauth-btn oauth-microsoft" id="btn-microsoft">
+            <img src="assets/icons/ms.png" style="width:20px;height:20px" alt="">
+          Microsoft
+        </button>
+      </div>
+
+      <div class="divider"><span>or</span></div>
+
+      <form id="login-form" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" class="mc-input" placeholder="you@example.com" required>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" class="mc-input" placeholder="••••••••" required>
+
+        <div class="aux">
+            <div class="auxContainers">
+                <section class="forgotSection">
+                    <a href="#" id="forgot-link">Forgot password?</a>
+                </section>
+                <section class="rememberSection">
+                    <label class="mc-checkbox">
+                        <input type="checkbox" id="remember" name="remember"> Remember me
+                      </label>
+                </section>            
+            </div>
+
+        </div>
+
+        <div class="selectionSection">
+            <div>
+                <button type="submit" class="card2-btn" id="login-btn">Login</button>
+            </div>
+            <div>
+                <button class="card2-btn"><a href="register.html" class="navlink">Register</a></button>
+            </div>
+        </div>
+        <p id="login-status" class="hint"></p>
+      </form>
+
+    </div>
+  </div>
+
+    <!-- Footer block -->
+
+    <footer>
+        <div class="footerContainer">
+          <p class="footxt">WiiZARDD via Github. Your Website name - All rights reserved.</p>
+          <button class="forkBtn">
+            <div class="fork">
+              <img src="assets/icons/github.png" width="20px"><a class="navlink" href="https://github.com/WiiZARDD/MineIndex---Minecraft-Server-List/fork">Fork Project</a>
+            </div>
+          </button>
+        </div>
+      </footer>
+
+  <script type="module">
+    const form   = document.getElementById('login-form');
+    const status = document.getElementById('login-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Signing in…';
+      try {
+        const res  = await fetch('/api/login', { method:'POST', body:new FormData(form) });
+        const data = await res.json().catch(()=>({}));
+        if (!res.ok) throw new Error(data.message || 'Login failed');
+        status.textContent = 'Success! Redirecting…';
+        status.className = 'success';
+        setTimeout(()=> location.href = 'index.html', 800);
+      } catch (err) {
+        status.textContent = 'Error: ' + err.message;
+        status.className = 'error';
+      }
+    });
+
+    document.getElementById('btn-google')?.addEventListener('click', () => {
+      // EXAMPLE: location.href = '/auth/google'
+      alert('TODO: connect Google OAuth');
+    });
+    document.getElementById('btn-microsoft')?.addEventListener('click', () => {
+      // EXAMPLE: location.href = '/auth/microsoft'
+      alert('TODO: connect Microsoft OAuth');
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
