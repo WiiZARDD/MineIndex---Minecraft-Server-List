@@ -8,9 +8,37 @@ Responsive design for Mobile First focus! Sandwich dropdown drawer with smooth s
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 [![Made with](https://img.shields.io/badge/HTML%20%7C%20CSS%20%7C%20JS-black)](#)
 
-![MineIndex Index](https://i.imgur.com/CUFuLT2.jpeg)
+---
 
-![MineIndex Submit](https://i.imgur.com/Tad9NRV.png)
+## 📸 Demo Previews
+
+<details>
+  <summary><strong>Desktop Preview</strong> (click to expand)</summary>
+
+
+<img src="https://i.imgur.com/25Ka39C.jpeg" alt="Desktop – Homepage" width="900">
+
+<img src="https://i.imgur.com/C9Yaqoo.png" alt="Desktop – Submit Server" width="900">
+
+<img src="https://i.imgur.com/BojZu9X.png" alt="Desktop – Login" width="900">
+
+<img src="https://i.imgur.com/kTw8CxE.png" alt="Desktop – Create Account" width="900">
+
+</details>
+<details>
+  <summary><strong>Mobile Preview</strong> (click to expand)</summary>
+
+  <img src="https://i.imgur.com/XNK2dKS.png" alt="Mobile – Homepage" width="360">
+
+  <img src="https://i.imgur.com/EcHkidf.png" alt="Mobile – Homepage (menu open)" width="360">
+
+  <img src="https://i.imgur.com/DBwESby.png" alt="Mobile – Login" width="360">
+
+  <img src="https://i.imgur.com/oSF4WOJ.png" alt="Mobile – Register" width="360">
+
+  <img src="https://i.imgur.com/fgMTAzC.png" alt="Mobile – Submit Server" width="360">
+
+</details>
 
 ---
 
