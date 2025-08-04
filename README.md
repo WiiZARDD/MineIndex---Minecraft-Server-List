@@ -16,13 +16,13 @@ Responsive design for Mobile First focus! Sandwich dropdown drawer with smooth s
   <summary><strong>Desktop Preview</strong> (click to expand)</summary>
 
 
-<img src="https://i.imgur.com/25Ka39C.jpeg" alt="Desktop – Homepage" width="900">
+<img src="https://i.imgur.com/oWE5ObR.jpeg" alt="Desktop – Homepage" width="900">
 
 <img src="https://i.imgur.com/C9Yaqoo.png" alt="Desktop – Submit Server" width="900">
 
 <img src="https://i.imgur.com/BojZu9X.png" alt="Desktop – Login" width="900">
 
-<img src="https://i.imgur.com/kTw8CxE.png" alt="Desktop – Create Account" width="900">
+<img src="https://i.imgur.com/iD4h45K.png" alt="Desktop – Create Account" width="900">
 
 </details>
 <details>
